@@ -109,3 +109,13 @@ FROM people
 JOIN states ON people.state_code = states.state_abbrev
 GROUP BY state_code
 ORDER BY AVGPOINTS DESC;
+
+
+-- Inserting a row data
+INSERT INTO people
+(first_name,last_name,state_code,city,shirt_or_hat)
+VALUES
+('Mary','Hamilton','OR','Portland','hat')
+
+-- Verifying if the data is inserted
+SELECT * FROM people
