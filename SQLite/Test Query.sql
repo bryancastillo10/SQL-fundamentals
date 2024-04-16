@@ -35,6 +35,12 @@ ORDER BY first_name DESC;
 SELECT DISTINCT(first_name) 
 FROM people;
 
+--Test- 1
+SELECT team, shirt_or_hat, first_name, last_name
+FROM people
+WHERE state_code = 'CO'
+ORDER BY team, shirt_or_hat ASC, last_name DESC;
+
 -- Joining Function
 SELECT people.first_name, people.state_code, states.division
 FROM people
@@ -95,3 +101,11 @@ SELECT quiz_points
 FROM people
 ORDER BY CAST(quiz_points AS CHAR);
 
+-- Test -3
+SELECT state_name AS STATE, 
+MAX(quiz_points) AS MAXPOINTS,
+CAST(AVG(quiz_points) AS INT) AS AVGPOINTS
+FROM people
+JOIN states ON people.state_code = states.state_abbrev
+GROUP BY state_code
+ORDER BY AVGPOINTS DESC;
